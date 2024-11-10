@@ -9,7 +9,6 @@ export class DiagramsController {
 
   @Post()
   create(@Body() createDiagramDto: Partial<Diagram>) {
-    console.log('Recibida solicitud para crear diagrama:', createDiagramDto)
     return this.diagramsService.create(createDiagramDto)
   }
 
