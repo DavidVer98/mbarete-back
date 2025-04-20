@@ -28,7 +28,7 @@ module.exports = {
       'error',
       {
         'semi': false,
-        'endOfLine': 'lf',
+        'endOfLine': 'auto',
         'singleQuote': true,
         'trailingComma': 'all',
         'printWidth': 100,
@@ -38,7 +38,8 @@ module.exports = {
     'semi': ['error', 'never'],
     'no-extra-semi': 'error',
     'semi-spacing': ['error', { 'before': false, 'after': true }],
-    'linebreak-style': ['error', 'unix'],
+    '@typescript-eslint/semi': ['error', 'never'],
+    'linebreak-style': 'off',
     'no-console': 'warn',
     'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': 'off',
@@ -93,4 +94,10 @@ module.exports = {
     'curly': ['error', 'all'],
     'eqeqeq': ['error', 'always'],
   },
+  // "compilerOptions": {
+  //   "moduleResolution": "node",
+  //   "typeRoots": ["./node_modules/@types"],
+  //   "esModuleInterop": true
+  // },
+  // "include": ["src/**/*.ts", "node_modules"]
 }
