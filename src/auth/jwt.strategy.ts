@@ -18,8 +18,8 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     })
   }
 
-  async validate(payload: { sub: string; email: string }) {
-    const user = await this.usersService.findOne(payload.sub)
+  async validate(payload: { sub: number; email: string }) {
+    const user = await this.usersService.findOne(payload.email)
     return user
   }
 }

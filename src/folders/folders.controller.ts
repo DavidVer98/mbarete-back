@@ -18,7 +18,6 @@ import { JwtAuthGuard } from '../auth/jwt-auth.guard'
 
 // src/folders/folders.controller.ts
 @Controller('folders')
-@UseGuards(JwtAuthGuard)
 export class FoldersController {
   constructor(private readonly foldersService: FoldersService) {}
 
@@ -29,7 +28,7 @@ export class FoldersController {
       ownerId: req.user.id,
     })
   }
-
+  @UseGuards(JwtAuthGuard)
   @Get('list')
   findAll(@Request() req) {
     return this.foldersService.findAll(req.user.id)

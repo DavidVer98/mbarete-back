@@ -1,0 +1,34 @@
+└── 📁exercises
+    ├── 📁entities
+    │   ├── exercise.entity.ts         // Entidad Exercise (ejercicio)
+    │   ├── routine.entity.ts          // Entidad Routine (rutina)
+    │   ├── routine-exercise.entity.ts // Relación entre ejercicio y rutina
+    │   ├── scheduled-session.entity.ts // Entidad ScheduledSession (sesión programada)
+    │   ├── workout-log.entity.ts      // Entidad WorkoutLog (registro de entrenamiento)
+    │   └── workout-set-log.entity.ts  // Entidad WorkoutSetLog (log de sets)
+    ├── 📁dto
+    │   ├── create-exercise.dto.ts    // DTO para crear un ejercicio
+    │   ├── update-exercise.dto.ts    // DTO para actualizar un ejercicio
+    │   ├── create-routine.dto.ts     // DTO para crear una rutina
+    │   ├── update-routine.dto.ts     // DTO para actualizar una rutina
+    │   ├── create-scheduled-session.dto.ts // DTO para crear una sesión programada
+    │   └── create-workout-log.dto.ts // DTO para crear un log de entrenamiento
+    ├── 📁pipes
+    │   └── exercise-validation.pipe.ts // Validación personalizada para los ejercicios
+    ├── 📁services
+    │   ├── exercise.service.ts        // Lógica de negocio de los ejercicios
+    │   ├── routine.service.ts         // Lógica de negocio de las rutinas
+    │   ├── scheduled-session.service.ts // Lógica para gestionar las sesiones programadas
+    │   └── workout-log.service.ts    // Lógica para gestionar los logs de entrenamiento
+    ├── 📁controllers
+    │   ├── exercise.controller.ts     // Rutas para gestionar los ejercicios
+    │   ├── routine.controller.ts      // Rutas para gestionar las rutinas
+    │   ├── scheduled-session.controller.ts // Rutas para gestionar las sesiones programadas
+    │   └── workout-log.controller.ts  // Rutas para gestionar los logs de entrenamiento
+    ├── 📁repositories
+    │   ├── exercise.repository.ts    // Repositorio de ejercicios
+    │   ├── routine.repository.ts     // Repositorio de rutinas
+    │   ├── scheduled-session.repository.ts // Repositorio de sesiones programadas
+    │   └── workout-log.repository.ts // Repositorio de logs de entrenamiento
+    ├── 📁modules
+    │   └── exercise.module.ts        // Definición del módulo de ejercicios y su configuración

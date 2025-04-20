@@ -1,0 +1,45 @@
+Table User {
+  id int [pk, increment]
+  name string
+  email string
+}
+
+Table Routine {
+  id int [pk, increment]
+  name string
+  description string
+  isPublic boolean [note: 'True = pública, False = privada']
+  userId int [ref: > User.id]
+}
+
+Table Exercise {
+  id int [pk, increment]
+  name string
+  description string
+}
+
+Table RoutineExercises {
+  id int [pk, increment]
+  routineId int [ref: > Routine.id, null]  // Permitir NULL para ejercicios sin rutina
+  userId int [ref: > User.id, null]  // Nuevo campo para asignación libre de ejercicios
+  exerciseId int [ref: > Exercise.id]
+  recommendedSets int
+  recommendedReps int
+  scheduledDate date [note: 'Fecha opcional para un entrenamiento programado']
+}
+
+Table WorkoutLog {
+  id int [pk, increment]
+  routineExercisesId int [ref: > RoutineExercises.id]
+  date date
+  sets int
+  reps int
+  weight float
+}
+
+Table DayRoutine {
+  id int [pk, increment]
+  userId int [ref: > User.id]
+  routineId int [ref: > Routine.id]
+  dayOfWeek int [note: '0 = Domingo, 1 = Lunes, 2 = Martes, 3 = Miércoles, 4 = Jueves, 5 = Viernes, 6 = Sábado']
+}

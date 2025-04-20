@@ -1,0 +1,27 @@
+erdiagram test
+{
+  // Entities
+  entity user {
+    id int
+    name string
+    email string
+    password string
+  }
+  entity post {
+    id int
+    title string
+    content string
+    user_id int
+  }
+  entity comment {
+    id int
+    content string
+    user_id int
+    post_id int
+  }
+
+  // Relationships
+  user *-- post
+  post *-- comment
+  user *-- comment
+}

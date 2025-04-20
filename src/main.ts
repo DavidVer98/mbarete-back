@@ -10,8 +10,12 @@ async function bootstrap() {
 
   app.enableCors({
     origin: [
-      'http://192.168.100.2:3000', // Frontend IP:PORT
-      'http://localhost:3000', // Frontend local
+      'http://192.168.100.2:3001',
+      'http://192.168.100.2:3001', // Frontend web local
+      'http://localhost:3000', // Frontend web
+      'http://localhost:19000', // Expo Dev Server (nuevo)
+      'exp://192.168.100.2:3001', // Expo en físico (Android/iOS) (nuevo)
+      'http://192.168.100.2:8081', // Metro Bundler (nuevo)
     ],
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,

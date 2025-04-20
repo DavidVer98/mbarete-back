@@ -5,13 +5,12 @@ import { TypeOrmModule } from '@nestjs/typeorm'
 import { AuthModule } from './auth/auth.module'
 import { BoardsModule } from './boards/boards.module'
 import { DiagramsModule } from './diagrams/diagrams.module'
+import { ExerciseController } from './exercises/controllers/exercise/exercise.controller'
 import { ExercisesModule } from './exercises/exercises.module'
 import { FoldersModule } from './folders/folders.module'
 import { GoalsModule } from './goals/goals.module'
-import { RoutinesModule } from './routines/routines.module'
 import { UsersController } from './users/users.controller'
 import { UsersModule } from './users/users.module'
-import { WorkoutSessionsModule } from './workout-sessions/workout-sessions.module'
 
 @Module({
   imports: [
@@ -28,6 +27,8 @@ import { WorkoutSessionsModule } from './workout-sessions/workout-sessions.modul
         ssl: {
           rejectUnauthorized: false, // Necessary for Supabase connections
         },
+        migrationsRun: true,
+        migrations: [`${__dirname}/migrations/*{.ts,.js}`],
         // logging: true, // Añade esta línea
         // logger: 'advanced-console', // Y esta
       }),
@@ -38,11 +39,9 @@ import { WorkoutSessionsModule } from './workout-sessions/workout-sessions.modul
     BoardsModule,
     AuthModule,
     FoldersModule,
-    RoutinesModule,
-    ExercisesModule,
     GoalsModule,
-    WorkoutSessionsModule,
+    ExercisesModule,
   ],
-  controllers: [UsersController],
+  controllers: [UsersController, ExerciseController, ExerciseController],
 })
 export class AppModule {}

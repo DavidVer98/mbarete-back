@@ -1,20 +1,11 @@
-import {
-  Entity,
-  Column,
-  PrimaryGeneratedColumn,
-  ManyToOne,
-  UpdateDateColumn,
-  CreateDateColumn,
-} from 'typeorm'
+import { Entity, Column, ManyToOne } from 'typeorm'
 
+import { BaseEntity } from '../common/entities/base.entity'
 import { Folder } from '../folders/folder.entity'
 import { User } from '../users/users.entity'
 
 @Entity('tbl_boards')
-export class Board {
-  @PrimaryGeneratedColumn()
-  id: number
-
+export class Board extends BaseEntity {
   @Column()
   name: string
 
@@ -29,12 +20,6 @@ export class Board {
 
   @Column()
   ownerId: number
-
-  @CreateDateColumn()
-  createdAt: Date
-
-  @UpdateDateColumn()
-  updatedAt: Date
 
   @ManyToOne(() => Folder, (folder) => folder.boards, { nullable: true })
   folder: Folder
